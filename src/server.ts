@@ -1,12 +1,12 @@
 import fastify from "fastify";
 
-import userRoutes from "./routes/user.routes";
+import { appIndexRoutes } from "./routes";
 
 const app = fastify({
   logger: true,
 });
 
-app.register(userRoutes, { prefix: "/users" });
+appIndexRoutes(app);
 
 const start = async () => {
   try {

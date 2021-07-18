@@ -1,8 +1,9 @@
-import Router from "fastify";
+import { FastifyInstance } from "fastify";
+
 import userRoutes from "./user.routes";
 
-const routes = Router();
+function appIndexRoutes(app: FastifyInstance) {
+  app.register(userRoutes, { prefix: "/users" });
+}
 
-routes.register(userRoutes, { prefix: "/users" });
-
-export default routes;
+export { appIndexRoutes };
